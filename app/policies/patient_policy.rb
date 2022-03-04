@@ -21,7 +21,6 @@ class PatientPolicy < ApplicationPolicy
 
   # Who can destroy a patient ?
   # The clinic admin or patient
-
   def destroy?
     admin_or_owner?
   end

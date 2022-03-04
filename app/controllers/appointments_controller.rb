@@ -3,7 +3,8 @@ class AppointmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-   @appointments = current_user.appointments
+    @doctors = Doctor.all
+    @appointments = Appointment.all
   end
 
   def show

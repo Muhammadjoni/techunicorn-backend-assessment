@@ -13,14 +13,11 @@ class DoctorPolicy < ApplicationPolicy
     true
   end
 
-  # Who can edit a doctor ?
-  # the doctor or the clinic admin
+  # Who can edit or destroy a doctor ?
+  # the doctor or the admin
   def update?
     admin_or_owner?
   end
-
-  # Who can destroy a doctor ?
-  # The clinic admin or doctor
 
   def destroy?
     admin_or_owner?
