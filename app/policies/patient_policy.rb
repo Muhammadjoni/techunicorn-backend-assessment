@@ -16,31 +16,31 @@ class PatientPolicy < ApplicationPolicy
   # Who can edit a patient ?
   # the patient or the clinic admin
   def update?
-    admin_or_patient?
+    admin_or_owner?
   end
 
   # Who can destroy a patient ?
   # The clinic admin or patient
 
   def destroy?
-    admin_or_patient?
+    admin_or_owner?
   end
 
-  # def my_rents?
-  #   true
-  # end
+  def my_sessions?
+    true
+  end
 
   private
 
-  def admin_or_patient?
-    patient? || admin?
+  def admin_or_owner?
+    owner? || admin?
   end
 
   def admin?
     @user.admin
   end
 
-  def patient?
+  def owner?
     @record.user == @user
   end
 end

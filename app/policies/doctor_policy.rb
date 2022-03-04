@@ -16,24 +16,24 @@ class DoctorPolicy < ApplicationPolicy
   # Who can edit a doctor ?
   # the doctor or the clinic admin
   def update?
-    admin_or_doctor?
+    admin_or_owner?
   end
 
   # Who can destroy a doctor ?
   # The clinic admin or doctor
 
   def destroy?
-    admin_or_doctor?
+    admin_or_owner?
   end
 
-  # def my_rents?
-  #   true
-  # end
+  def my_appointments?
+    true
+  end
 
   private
 
-  def admin_or_doctor?
-    doctor? || admin?
+  def admin_or_owner?
+    owner? || admin?
   end
 
   def admin?

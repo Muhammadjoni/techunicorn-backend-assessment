@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-   @patients = Patient.all
+   @patients = current_user.patient
   end
 
   def show
@@ -47,10 +47,10 @@ class PatientsController < ApplicationController
   def destroy
     authorize @patient
     @patient.destroy
-    redirect_to my_appointments_patients_path
+    redirect_to my_sessions_patients_path
   end
 
-  def my_appointments
+  def my_sessions
     @patients = current_user.patients
     authorize patient.new
   end
