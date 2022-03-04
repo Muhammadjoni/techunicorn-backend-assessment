@@ -1,0 +1,2 @@
+class ClinicAdmin < ApplicationRecord
+end
