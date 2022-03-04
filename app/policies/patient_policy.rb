@@ -14,13 +14,13 @@ class PatientPolicy < ApplicationPolicy
   end
 
   # Who can edit a patient ?
-  # the patient or the clinic admin
+  # the patient or the admin
   def update?
     admin_or_owner?
   end
 
   # Who can destroy a patient ?
-  # The clinic admin or patient
+
   def destroy?
     admin_or_owner?
   end

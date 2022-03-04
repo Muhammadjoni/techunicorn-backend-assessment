@@ -14,14 +14,13 @@ class AppointmentPolicy < ApplicationPolicy
   end
 
   # Who can edit a appointment ?
-  # the doctor or the clinic admin
+  # the doctor or the admin
   def update?
     admin_or_doctor?
   end
 
   # Who can destroy a doctor ?
-  # The clinic admin or doctor
-
+  # The admin or doctor
   def destroy?
     admin_or_doctor?
   end
