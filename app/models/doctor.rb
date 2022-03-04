@@ -3,6 +3,7 @@ class Doctor < ApplicationRecord
   has_many :appointments, dependent: :destroy
   belongs_to :clinic_admin
   belongs_to :appoinments
+  belongs_to :user
 
   validates :last_name, presence: true
   validates :profession, presence: true
